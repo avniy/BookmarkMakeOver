@@ -1,24 +1,20 @@
-# 📚 Sorted AI
+# 📚 Sorted AI - Chrome Extension
 
-> **AI-powered bookmark organizer** - Chrome extension + web wizard
+> **AI-powered bookmark organizer** - Clean up years of bookmark chaos in seconds
 
-Transform years of bookmark chaos into perfectly organized folders in seconds. No more "Unsorted Bookmarks" with 1,000+ items.
+Transform your messy bookmarks into perfectly organized folders. No more "Unsorted Bookmarks" with 1,000+ items.
 
 ---
 
 ## ✨ Features
 
-- 🧠 **AI Psychology** - Organizes by your hobbies, career, and life events (not alphabetically)
+- 🧠 **AI Psychology** - Organizes by your hobbies, career, and life events
 - 🗑️ **Smart Cleanup** - Auto-removes duplicates, 404s, and dead links
-- ⚡ **One-Click Restore** - Safe backup & instant revert anytime
-- 📁 **Perfect Folders** - Creates nested structures that actually make sense
+- ⚡ **One-Click Restore** - Safe backup & instant revert
+- 📁 **Perfect Folders** - Creates nested structures that make sense
 - 🔥 **Brutal Honesty** - Get a productivity score and real insights
 - ✏️ **Smart Renaming** - Renames "Untitled" bookmarks automatically
-- 🎯 **Life Events** - Detects weddings, moves, career changes from bookmarks
-- 🔄 **Monthly Reminders** - Lifetime users get nudges to re-organize
 - 🌍 **Multi-Language** - Organize in any language
-- ⏮️ **Version History** - Time-travel your bookmarks, restore previous states
-- 📌 **Icon-Only Respect** - Preserves Chrome icon-only bookmarks
 - 🎨 **6 Organization Styles** - Smart, Flat, Deep, By Type, By Domain, By Year
 
 ---
@@ -32,78 +28,65 @@ Transform years of bookmark chaos into perfectly organized folders in seconds. N
 
 ---
 
-## 💰 Pricing
+## 🚀 Installation
 
-- **$9/year** - Perfect for trying it out
-- **$29 lifetime** - One payment, years of organization (30 analyses/month)
+### From Source
 
-No credits system. No surprises.
+1. Clone this repo:
+   \`\`\`bash
+   git clone https://github.com/avniy/sorted-ai.git
+   cd sorted-ai
+   \`\`\`
 
----
+2. Load in Chrome:
+   - Open Chrome and go to \`chrome://extensions\`
+   - Enable "Developer mode"
+   - Click "Load unpacked"
+   - Select the \`extension/\` folder
 
-## 🚀 Quick Start
+### From Chrome Web Store
 
-### 1. Install Extension
-
-1. Download from Chrome Web Store *(coming soon)*
-2. Or load unpacked from \`extension/\` folder
-
-### 2. Set Up Backend
-
-\`\`\`bash
-# Clone the repo
-git clone https://github.com/avniy/Sorted AI.git
-cd Sorted AI
-
-# Configure environment
-cp backend/.env.example backend/.env
-# Edit backend/.env with your Claude API key
-
-# Run locally (PHP 7.4+)
-cd backend
-php -S localhost:8000
-\`\`\`
-
-### 3. Open Wizard
-
-1. Click extension icon
-2. Enter email + API key
-3. Follow the 5-step wizard
+*(Coming soon)*
 
 ---
 
-## 📂 Project Structure
+## 📂 Extension Structure
 
 \`\`\`
-Sorted AI/
-├── extension/           # Chrome extension
-│   ├── manifest.json   # Extension config
-│   ├── popup.html      # Login popup
-│   ├── popup.js        # Auth logic
-│   ├── background.js   # Bookmark API bridge
-│   └── content.js      # Page <-> extension bridge
-│
-├── backend/            # PHP backend
-│   ├── wizard.php      # Main 5-step wizard UI
-│   ├── wizard.js       # Frontend logic
-│   ├── api.php         # REST endpoints
-│   ├── claude.php      # Claude AI integration
-│   ├── organize.php    # Organization logic
-│   ├── session.php     # Session management
-│   └── .env.example    # Config template
-│
-└── README.md           # You are here
+extension/
+├── manifest.json    # Extension config
+├── popup.html       # Login popup
+├── popup.js         # Auth logic
+├── popup.css        # Styles
+├── background.js    # Bookmark API bridge
+└── content.js       # Page <-> extension bridge
 \`\`\`
 
 ---
 
-## 🎨 Extension Design
+## 🎨 Design
 
 - **Teal/Cyan + Coral** color scheme
 - **Dark theme** with glass-morphism effects
-- **420x480px popup** with improved fonts
-- **Production-only** URLs (localhost removed)
+- **420x480px popup** with modern UI
+- **Production-ready** design
 
 ---
 
-Made with ❤️ by [avniy](https://github.com/avniy) | 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+## 🔗 Links
+
+- **Website**: https://sorted-ai.com
+- **GitHub**: https://github.com/avniy/sorted-ai
+- **Chrome Store**: *(coming soon)*
+
+---
+
+## 📧 Support
+
+Questions? Open an issue on [GitHub](https://github.com/avniy/sorted-ai/issues)
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/avniy">avniy</a>
+</p>
