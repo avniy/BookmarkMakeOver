@@ -48,7 +48,7 @@ if (!$sessionValid) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Session Expired - BookmarkMakeOver</title>
+        <title>Session Expired - Sorted AI</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center">
@@ -71,7 +71,7 @@ if (!$sessionValid) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookmarkMakeOver - Organize Your Bookmarks</title>
+    <title>Sorted AI - Organize Your Bookmarks</title>
     <meta name="csrf-token" content="<?php echo htmlspecialchars($csrfToken); ?>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -116,7 +116,7 @@ if (!$sessionValid) {
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <span class="text-2xl">📚</span>
-                <span class="text-xl font-bold text-blue-600">BookmarkMakeOver</span>
+                <span class="text-xl font-bold text-blue-600">Sorted AI</span>
             </div>
             <div class="flex items-center gap-4">
                 <span class="text-gray-600"><?php echo htmlspecialchars($userData['email']); ?></span>

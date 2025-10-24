@@ -103,7 +103,7 @@ window.addEventListener('message', async (event) => {
 });
 
 // Notify page that content script is ready
-console.log('🔌 BookmarkMakeOver content script loaded!');
+console.log('🔌 Sorted AI content script loaded!');
 
 // Send ready message after page loads
 if (document.readyState === 'loading') {

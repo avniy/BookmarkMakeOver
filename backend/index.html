@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorted AI - AI-Powered Bookmark Organization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.35);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.25);
+        }
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.35);
+            transform: translateY(-1px);
+        }
+        .card-shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Nav -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">📚</span>
+                    <span class="text-xl font-bold text-blue-600">Sorted AI</span>
+                </div>
+                <div class="flex gap-6 items-center">
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 font-medium">Pricing</a>
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 font-medium">Features</a>
+                    <a href="login.php" class="text-gray-600 hover:text-blue-600 font-medium">Login</a>
+                    <a href="register.php" class="btn-primary text-white px-6 py-2 rounded-full font-semibold transition">Start Free</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-4 gradient-bg">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-2 mb-8">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-sm text-green-700 font-medium">2,847 bookmarks organized today</span>
+            </div>
+
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
+                Transform Your Bookmarks<br>
+                <span class="text-blue-600">Into An Organized System</span>
+            </h1>
+
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                Stop scrolling through hundreds of random links. Let AI analyze your browsing patterns and create a personalized folder structure in 60 seconds.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="register.php" class="btn-primary text-white px-10 py-4 rounded-full text-lg font-bold transition">
+                    Start Free - 100 Credits
+                </a>
+                <a href="#how-it-works" class="bg-white border-2 border-blue-600 text-blue-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition">
+                    See How It Works
+                </a>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-500">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <span class="font-medium">4.9/5 rating</span>
+                </div>
+                <div>•</div>
+                <div class="flex items-center gap-1">
+                    <span>✓</span>
+                    <span>No credit card required</span>
+                </div>
+                <div>•</div>
+                <div class="flex items-center gap-1">
+                    <span>⚡</span>
+                    <span>60-second setup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">
+                Common Bookmark Challenges
+            </h2>
+            <p class="text-center text-gray-600 mb-16 text-lg">We understand your frustration</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 card-shadow transition">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Screen Share Anxiety</h3>
+                    <p class="text-gray-600">Worried about what shows in your bookmark bar during meetings? We can help hide sensitive links while keeping everything accessible.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 card-shadow transition">
+                    <div class="text-5xl mb-4">🗂️</div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Lost Organization</h3>
+                    <p class="text-gray-600">Started with a perfect system, then gave up? AI can restore order by understanding your browsing patterns and interests.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 card-shadow transition">
+                    <div class="text-5xl mb-4">🔍</div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Can't Find Anything</h3>
+                    <p class="text-gray-600">Hundreds of bookmarks, zero structure. Our AI creates logical categories based on your actual usage patterns.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 card-shadow transition">
+                    <div class="text-5xl mb-4">💼</div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Work & Life Mixed</h3>
+                    <p class="text-gray-600">Professional and personal bookmarks all jumbled together? We separate and organize them automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">How It Works</h2>
+            <p class="text-center text-gray-600 mb-16 text-lg">Three simple steps to organized bookmarks</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Install Extension</h3>
+                    <p class="text-gray-600">Download our Chrome extension and connect with your API key. Takes 30 seconds.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">AI Analyzes</h3>
+                    <p class="text-gray-600">Our AI reads your bookmarks, detects patterns, and creates a smart folder structure.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Preview & Apply</h3>
+                    <p class="text-gray-600">Review the suggested organization. Happy with it? Apply with one click.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">Intelligent Features</h2>
+            <p class="text-center text-gray-600 mb-16 text-lg">Powered by Claude AI</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl border-2 border-blue-100 card-shadow transition">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-4">🧠</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Pattern Detection</h3>
+                    <p class="text-gray-600">Identifies your hobbies, career interests, and life events from bookmark patterns.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border-2 border-green-100 card-shadow transition">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Privacy Protection</h3>
+                    <p class="text-gray-600">Hide sensitive bookmarks deep in nested folders with inconspicuous names.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border-2 border-amber-100 card-shadow transition">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-2xl mb-4">🗑️</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Smart Cleanup</h3>
+                    <p class="text-gray-600">Remove duplicates and 404s automatically. Keep only what matters.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border-2 border-purple-100 card-shadow transition">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-2xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Productivity Insights</h3>
+                    <p class="text-gray-600">Get honest feedback about your bookmark habits and productivity score.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border-2 border-pink-100 card-shadow transition">
+                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center text-2xl mb-4">💡</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Smart Suggestions</h3>
+                    <p class="text-gray-600">Receive personalized recommendations for better bookmark management.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border-2 border-cyan-100 card-shadow transition">
+                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center text-2xl mb-4">📥</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Backup First</h3>
+                    <p class="text-gray-600">Always create a backup before organizing. Restore anytime if needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 px-4 bg-gradient-bg">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">Simple, Transparent Pricing</h2>
+            <p class="text-center text-gray-600 mb-16 text-lg">Choose the plan that works for you</p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Pay Per Use -->
+                <div class="bg-white p-10 rounded-3xl border-2 border-gray-200 card-shadow transition">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Pay Per Use</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-5xl font-bold text-blue-600">$0.018</span>
+                        <span class="text-gray-600 ml-2">per bookmark</span>
+                    </div>
+                    <p class="text-gray-500 mb-8 text-sm">Only pay for what you organize</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span><strong>100 free credits</strong> on signup</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Credits <strong>never expire</strong></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Buy exact amount needed</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>500 bookmarks = $9.00</span>
+                        </li>
+                    </ul>
+                    <a href="register.php" class="block text-center bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition">
+                        Start Free
+                    </a>
+                </div>
+
+                <!-- Gold Lifetime -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-10 rounded-3xl border-2 border-amber-300 relative card-shadow transition transform hover:scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-amber-500 text-white px-6 py-2 rounded-full text-sm font-bold">
+                        BEST VALUE
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Gold Lifetime</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-5xl font-bold text-amber-600">$199</span>
+                        <span class="text-gray-600 ml-2">one-time</span>
+                    </div>
+                    <p class="text-gray-600 mb-8 text-sm">Never pay again</p>
+                    <ul class="space-y-4 mb-10 text-gray-900">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span><strong>2000 credits/week</strong> forever</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span><strong>Unlimited reorganizations</strong></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Email reminders (optional)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Priority support</span>
+                        </li>
+                    </ul>
+                    <a href="register.php" class="block text-center btn-secondary text-white px-8 py-4 rounded-full font-bold transition">
+                        Get Gold Lifetime
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 text-gray-900">Trusted by Professionals</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">2,847+</div>
+                    <div class="text-gray-600">Bookmarks organized today</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-green-600 mb-2">98%</div>
+                    <div class="text-gray-600">User satisfaction rate</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-amber-600 mb-2">60s</div>
+                    <div class="text-gray-600">Average setup time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-4 gradient-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                Ready to Organize Your Bookmarks?
+            </h2>
+            <p class="text-xl text-gray-600 mb-10">
+                Start with 100 free credits. No credit card required.
+            </p>
+            <a href="register.php" class="inline-block btn-primary text-white px-12 py-5 rounded-full text-lg font-bold transition">
+                Start Free Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <span class="text-2xl">📚</span>
+                <span class="text-xl font-bold text-white">Sorted AI</span>
+            </div>
+            <p class="mb-4">AI-powered bookmark organization. Simple, secure, effective.</p>
+            <div class="text-sm">
+                © 2025 Sorted AI. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
-// Background service worker for BookmarkMakeOver
+// Background service worker for Sorted AI
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('BookmarkMakeOver installed');
+  console.log('Sorted AI installed');
 });
 
 // Handle messages from content script

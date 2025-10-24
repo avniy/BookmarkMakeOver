@@ -1,4 +1,4 @@
-# 📚 BookmarkMakeOver
+# 📚 Sorted AI
 
 > **AI-powered bookmark organizer** - Chrome extension + web wizard
 
@@ -52,8 +52,8 @@ No credits system. No surprises.
 
 \`\`\`bash
 # Clone the repo
-git clone https://github.com/avniy/BookmarkMakeOver.git
-cd BookmarkMakeOver
+git clone https://github.com/avniy/Sorted AI.git
+cd Sorted AI
 
 # Configure environment
 cp backend/.env.example backend/.env
@@ -75,7 +75,7 @@ php -S localhost:8000
 ## 📂 Project Structure
 
 \`\`\`
-BookmarkMakeOver/
+Sorted AI/
 ├── extension/           # Chrome extension
 │   ├── manifest.json   # Extension config
 │   ├── popup.html      # Login popup

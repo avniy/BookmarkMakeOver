@@ -85,31 +85,3 @@ function login($email, $password) {
         'credits' => $user['credits']
     ];
 }
-
-// API Endpoint
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = json_decode(file_get_contents('php://input'), true);
-    $action = $data['action'] ?? '';
-
-    switch ($action) {
-        case 'register':
-            echo json_encode(register($data['email'], $data['password']));
-            break;
-
-        case 'login':
-            echo json_encode(login($data['email'], $data['password']));
-            break;
-
-        case 'validate':
-            $user = validateApiKey($data['apiKey']);
-            if ($user) {
-                echo json_encode(['success' => true, 'user' => $user]);
-            } else {
-                echo json_encode(['success' => false, 'error' => 'Invalid API key']);
-            }
-            break;
-
-        default:
-            echo json_encode(['success' => false, 'error' => 'Invalid action']);
-    }
-}

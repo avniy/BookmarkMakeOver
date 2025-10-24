@@ -85,7 +85,7 @@ RIGHT PANEL:
 - Overwhelming, stressful look
 
 BOTTOM BANNER:
-- Black background with white text: 'BookmarkMakeOver: AI fixes both'
+- Black background with white text: 'Sorted AI: AI fixes both'
 
 Style: Clean, modern UI design, realistic browser chrome aesthetic, relatable tech humor. High contrast, readable text. Make it look like actual Chrome browser screenshots.";
 
@@ -135,7 +135,7 @@ RIGHT SIDE - 'REALITY':
 - Label at top: 'REALITY'
 
 BOTTOM BANNER:
-- 'Let AI organize your chaos in 60 seconds - BookmarkMakeOver'
+- 'Let AI organize your chaos in 60 seconds - Sorted AI'
 
 Style: Modern, clean UI design, relatable tech humor, high contrast between both sides. Make it look like actual browser screenshots.";
 
@@ -152,7 +152,7 @@ Above them, a speech bubble: 'I have a system, I swear!'
 
 On their computer screen in the background, show a browser with 487 tabs open and an impossibly crowded bookmark bar.
 
-At the bottom, a clean white banner with text: 'Stop lying to yourself. BookmarkMakeOver - AI organizes your digital mess'
+At the bottom, a clean white banner with text: 'Stop lying to yourself. Sorted AI - AI organizes your digital mess'
 
 Style: Slightly exaggerated, humorous editorial-style photo illustration. Person should look overwhelmed but relatable. Modern office setting. High quality, shareable format.";
 
@@ -175,7 +175,7 @@ Detective's hand pointing at the evidence with a magnifying glass.
 
 TOP TEXT: 'Your bookmarks tell a story'
 
-BOTTOM TEXT: 'Let AI organize your secrets - BookmarkMakeOver'
+BOTTOM TEXT: 'Let AI organize your secrets - Sorted AI'
 
 Style: Detective noir aesthetic meets modern tech humor. Dark background, dramatic lighting, conspiracy board vibes. Make it funny but professional.";
 
@@ -198,7 +198,7 @@ BOTTOM PANEL (Drake approving, pointing and smiling):
 
 Use the classic Drake meme format, professional photography style. Drake should be wearing a casual stylish outfit. High quality, instantly recognizable meme format.
 
-Small text at bottom: 'BookmarkMakeOver'
+Small text at bottom: 'Sorted AI'
 
 Style: Classic Drake meme aesthetic, clean and professional, instantly shareable. Make it look like the authentic meme template.";
 

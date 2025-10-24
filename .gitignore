@@ -2,6 +2,10 @@
 backend/database.sqlite
 backend/*.db
 
+# Logs
+backend/logs/
+*.log
+
 # Environment
 .env
 *.env

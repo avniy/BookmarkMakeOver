@@ -10,7 +10,7 @@ C:\wamp64\bin\mysql\mysql8.3.0\bin\mysql.exe -u root -p
 mysql -u root -p
 
 # Then:
-source C:\Users\avniy\OneDrive\Desktop\Code\BookmarkMakeOver\backend\db.sql
+source C:\Users\avniy\OneDrive\Desktop\Code\Sorted AI\backend\db.sql
 ```
 
 ## 2. Configure Backend
@@ -28,17 +28,17 @@ If you need different DB credentials, edit `backend/config.php`.
 If using WAMP:
 ```bash
 # Copy backend folder to:
-C:\wamp64\www\BookmarkMakeOver\backend\
+C:\wamp64\www\Sorted AI\backend\
 
 # Access at:
-http://localhost/BookmarkMakeOver/backend/
+http://localhost/Sorted AI/backend/
 ```
 
 ## 4. Update Extension API URL
 
 Edit `extension/popup.js` line 1:
 ```javascript
-const API_URL = 'http://localhost/BookmarkMakeOver/backend';
+const API_URL = 'http://localhost/Sorted AI/backend';
 ```
 
 Change to your actual backend URL if different.
@@ -58,11 +58,11 @@ Or download a bookmark icon from the web and resize it.
 2. Go to `chrome://extensions`
 3. Enable "Developer mode" (top right)
 4. Click "Load unpacked"
-5. Select: `C:\Users\avniy\OneDrive\Desktop\Code\BookmarkMakeOver\extension`
+5. Select: `C:\Users\avniy\OneDrive\Desktop\Code\Sorted AI\extension`
 
 ## 7. Register & Test
 
-1. Go to `http://localhost/BookmarkMakeOver/backend/register.php`
+1. Go to `http://localhost/Sorted AI/backend/register.php`
 2. Create account (you get 100 free credits)
 3. Copy your API key
 4. Open Chrome extension (click icon in toolbar)

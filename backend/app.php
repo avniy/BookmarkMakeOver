@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - BookmarkMakeOver</title>
+    <title>Dashboard - Sorted AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -12,7 +12,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-8">
-                    <span class="text-xl font-bold text-indigo-600">📚 BookmarkMakeOver</span>
+                    <span class="text-xl font-bold text-indigo-600">📚 Sorted AI</span>
                     <div id="creditsDisplay" class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-semibold">
                         -- Credits
                     </div>
@@ -94,7 +94,7 @@
                 <div class="border-2 border-gray-200 rounded-lg p-6 text-center hover:border-indigo-600 cursor-pointer transition">
                     <div class="text-2xl font-bold mb-2">100 Credits</div>
                     <div class="text-gray-600 text-sm mb-4">~100 bookmarks</div>
-                    <div class="text-3xl font-bold text-indigo-600 mb-4">$5</div>
+                    <div class="text-3xl font-bold text-indigo-600 mb-4">$1.80</div>
                     <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 w-full">
                         Buy Now
                     </button>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="text-2xl font-bold mb-2">500 Credits</div>
                     <div class="text-gray-600 text-sm mb-4">~500 bookmarks</div>
-                    <div class="text-3xl font-bold text-indigo-600 mb-4">$20</div>
+                    <div class="text-3xl font-bold text-indigo-600 mb-4">$9.00</div>
                     <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 w-full">
                         Buy Now
                     </button>
@@ -115,7 +115,7 @@
                 <div class="border-2 border-gray-200 rounded-lg p-6 text-center hover:border-indigo-600 cursor-pointer transition">
                     <div class="text-2xl font-bold mb-2">1000 Credits</div>
                     <div class="text-gray-600 text-sm mb-4">~1000 bookmarks</div>
-                    <div class="text-3xl font-bold text-indigo-600 mb-4">$35</div>
+                    <div class="text-3xl font-bold text-indigo-600 mb-4">$18.00</div>
                     <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 w-full">
                         Buy Now
                     </button>
@@ -137,7 +137,7 @@
 
             // Load user data
             try {
-                const res = await fetch(`api.php?action=user&apiKey=${apiKey}`);
+                const res = await fetch(`api?action=user&apiKey=${apiKey}`);
                 const data = await res.json();
 
                 if (data.success) {
