@@ -1,126 +1,109 @@
-# BookmarkMakeOver
+# 📚 BookmarkMakeOver
 
-AI-powered Chrome bookmark organization with brutal honesty and psychological intelligence.
+> **AI-powered bookmark organizer** - Chrome extension + web wizard
 
-## Features
+Transform years of bookmark chaos into perfectly organized folders in seconds. No more "Unsorted Bookmarks" with 1,000+ items.
 
-- **Icon-Only Bookmark Bar** - Clean, minimal aesthetic
-- **Hide Sensitive Content** - 4 levels: Deep, Deeper, Deepest, Mariana Trench
-- **Brutal Honesty Mode** - AI tells you the truth about your bookmark hoarding
-- **Hobby Detection** - Analyzes your interests from bookmarks
-- **Life Event Detection** - Identifies weddings, moving, career changes, etc.
-- **Dead Link Removal** - Detects and removes 404s
-- **Credit System** - 1 credit per bookmark, credits never expire
+---
 
-## Tech Stack
+## ✨ Features
 
-**Extension:**
-- Vanilla JavaScript
-- Chrome Bookmarks API
+- 🧠 **AI Psychology** - Organizes by your hobbies, career, and life events (not alphabetically)
+- 🗑️ **Smart Cleanup** - Auto-removes duplicates, 404s, and dead links
+- ⚡ **One-Click Restore** - Safe backup & instant revert anytime
+- 📁 **Perfect Folders** - Creates nested structures that actually make sense
+- 🔥 **Brutal Honesty** - Get a productivity score and real insights
+- ✏️ **Smart Renaming** - Renames "Untitled" bookmarks automatically
+- 🎯 **Life Events** - Detects weddings, moves, career changes from bookmarks
+- 🔄 **Monthly Reminders** - Lifetime users get nudges to re-organize
+- 🌍 **Multi-Language** - Organize in any language
+- ⏮️ **Version History** - Time-travel your bookmarks, restore previous states
+- 📌 **Icon-Only Respect** - Preserves Chrome icon-only bookmarks
+- 🎨 **6 Organization Styles** - Smart, Flat, Deep, By Type, By Domain, By Year
 
-**Backend:**
-- PHP 8+
-- MySQL
-- jQuery
-- Tailwind CSS
-- Claude API (Sonnet 4.5)
+---
 
-## Setup
+## 🔐 Privacy First
 
-### 1. Database
+- ✅ **Only sends bookmark titles and domains** (e.g., "github.com", not full URLs)
+- ✅ **No browsing history tracking**
+- ✅ **Zero data storage** - we don't keep your bookmarks
+- ✅ **No third parties** - never sold, shared, or analyzed
 
-```bash
-# Import database schema
-mysql -u root -p < backend/db.sql
-```
+---
 
-### 2. Backend Configuration
+## 💰 Pricing
 
-Edit `backend/config.php`:
-- Set your database credentials
-- Claude API key is already configured
+- **$9/year** - Perfect for trying it out
+- **$29 lifetime** - One payment, years of organization (30 analyses/month)
 
-### 3. Install Extension
+No credits system. No surprises.
 
-1. Open `chrome://extensions`
-2. Enable "Developer mode"
-3. Click "Load unpacked"
-4. Select the `extension` folder
+---
 
-### 4. Run Backend
+## 🚀 Quick Start
 
-```bash
-# If using XAMPP/WAMP, place backend folder in htdocs
-# Access at: http://localhost/BookmarkMakeOver/backend/
-```
+### 1. Install Extension
 
-## Usage
+1. Download from Chrome Web Store *(coming soon)*
+2. Or load unpacked from \`extension/\` folder
 
-1. Register at `http://localhost/BookmarkMakeOver/backend/register.php`
-2. Get 100 free credits
-3. Copy your API key
-4. Open Chrome extension and paste API key
-5. Choose organization options
-6. Click "Organize Bookmarks"
-7. Preview and apply changes
+### 2. Set Up Backend
 
-## Credit Pricing
+\`\`\`bash
+# Clone the repo
+git clone https://github.com/avniy/BookmarkMakeOver.git
+cd BookmarkMakeOver
 
-- 1 credit = 1 bookmark
-- 100 free credits on signup
-- Credits never expire
-- Additional credits: $5/100, $20/500, $35/1000
+# Configure environment
+cp backend/.env.example backend/.env
+# Edit backend/.env with your Claude API key
 
-## Privacy
+# Run locally (PHP 7.4+)
+cd backend
+php -S localhost:8000
+\`\`\`
 
-- Bookmarks sent to Claude API for organization only
-- Not stored on our servers
-- Session-based authentication
-- API keys stored securely
+### 3. Open Wizard
 
-## File Structure
+1. Click extension icon
+2. Enter email + API key
+3. Follow the 5-step wizard
 
-```
+---
+
+## 📂 Project Structure
+
+\`\`\`
 BookmarkMakeOver/
-├── extension/
-│   ├── manifest.json
-│   ├── popup.html
-│   ├── popup.css
-│   ├── popup.js
-│   ├── background.js
-│   └── icons/
-├── backend/
-│   ├── config.php
-│   ├── db.sql
-│   ├── auth.php
-│   ├── credits.php
-│   ├── claude.php
-│   ├── api.php
-│   ├── index.php
-│   ├── login.php
-│   ├── register.php
-│   └── app.php
-└── README.md
-```
+├── extension/           # Chrome extension
+│   ├── manifest.json   # Extension config
+│   ├── popup.html      # Login popup
+│   ├── popup.js        # Auth logic
+│   ├── background.js   # Bookmark API bridge
+│   └── content.js      # Page <-> extension bridge
+│
+├── backend/            # PHP backend
+│   ├── wizard.php      # Main 5-step wizard UI
+│   ├── wizard.js       # Frontend logic
+│   ├── api.php         # REST endpoints
+│   ├── claude.php      # Claude AI integration
+│   ├── organize.php    # Organization logic
+│   ├── session.php     # Session management
+│   └── .env.example    # Config template
+│
+└── README.md           # You are here
+\`\`\`
 
-## API Endpoints
+---
 
-**POST /auth.php**
-- `action: register` - Create account
-- `action: login` - Login
-- `action: validate` - Validate API key
+## 🎨 Extension Design
 
-**GET /api.php?action=user&apiKey=XXX**
-- Get user info and credits
+- **Teal/Cyan + Coral** color scheme
+- **Dark theme** with glass-morphism effects
+- **420x480px popup** with improved fonts
+- **Production-only** URLs (localhost removed)
 
-**POST /api.php**
-- `action: organize` - Organize bookmarks
-- Payload: `{apiKey, bookmarks, options}`
+---
 
-## Development
-
-Built with love, PHP, and brutal honesty.
-
-## License
-
-MIT
+Made with ❤️ by [avniy](https://github.com/avniy) | 🤖 Generated with [Claude Code](https://claude.com/claude-code)
