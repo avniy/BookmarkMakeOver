@@ -1,0 +1,33 @@
+# Database
+backend/database.sqlite
+backend/*.db
+
+# Environment
+.env
+*.env
+
+# API Keys (already in code, but good practice)
+config.local.php
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp
+
+# Marketing generated files (optional - remove if you want to commit them)
+marketing/ads/*.jpg
+marketing/ads/*.png
+
+# Extension packed files
+extension/*.crx
+extension/*.pem
