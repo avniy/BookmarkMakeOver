@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookmarkMakeOver - AI-Powered Bookmark Organization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Custom color scheme - Teal/Cyan + Coral */
+        .bg-primary { background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%); }
+        .bg-secondary { background: linear-gradient(135deg, #fb7185 0%, #f97316 100%); }
+        .text-primary { color: #14b8a6; }
+        .text-secondary { color: #fb7185; }
+        .border-primary { border-color: #14b8a6; }
+
+        /* Glowing effects */
+        .glow-teal {
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+        }
+        .glow-coral {
+            box-shadow: 0 0 20px rgba(251, 113, 133, 0.3);
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Pricing cards hover effect */
+        .pricing-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Popular badge */
+        .popular-badge {
+            background: linear-gradient(135deg, #fb7185 0%, #f97316 100%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        /* Feature cards */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(20, 184, 166, 0.1);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* CTA button */
+        .cta-button {
+            background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(20, 184, 166, 0.4);
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-gray-100">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-xl border-b border-white/5">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-2xl">📚</div>
+                    <span class="text-xl font-bold text-white">BookmarkMakeOver</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#features" class="text-gray-400 hover:text-white transition">Features</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a>
+                    <a href="login.php" class="text-gray-400 hover:text-white transition">Login</a>
+                    <a href="register.php" class="px-6 py-2 rounded-lg bg-primary text-black font-semibold hover:scale-105 transition">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="inline-block mb-6 px-4 py-2 rounded-full bg-white/5 border border-teal-500/30 text-sm text-teal-400">
+                ✨ AI-Powered Bookmark Intelligence
+            </div>
+
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight">
+                Your bookmarks,
+                <br/>
+                <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    finally organized
+                </span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+                <strong class="text-white">Pay once. Organize forever.</strong> AI analyzes bookmark titles and domains (like "github.com")—not full URLs. Get <strong class="text-teal-400">years of perfect organization</strong> from one session.
+            </p>
+
+            <!-- Privacy badges -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-teal-500/30">
+                    <span class="text-teal-400 text-lg">🔒</span>
+                    <span class="text-sm text-gray-300">100% Private</span>
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-teal-500/30">
+                    <span class="text-teal-400 text-lg">🚫</span>
+                    <span class="text-sm text-gray-300">No Data Stored</span>
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-teal-500/30">
+                    <span class="text-teal-400 text-lg">⚡</span>
+                    <span class="text-sm text-gray-300">One-Click Restore</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <a href="register.php" class="cta-button px-8 py-4 rounded-xl text-black font-bold text-lg shadow-2xl">
+                    Start Free Trial →
+                </a>
+                <a href="#pricing" class="px-8 py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold transition">
+                    View Pricing
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-2 mb-16">
+                <div class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-400 flex items-center gap-2">
+                    <span class="text-teal-400">✓</span>
+                    <span>Verified by Chrome Web Store</span>
+                </div>
+                <div class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-400 flex items-center gap-2">
+                    <span class="text-teal-400">✓</span>
+                    <span>Open Source</span>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+                <div>
+                    <div class="text-4xl font-bold text-teal-400 mb-2">30/mo</div>
+                    <div class="text-sm text-gray-500">AI Analyses</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-cyan-400 mb-2">$29</div>
+                    <div class="text-sm text-gray-500">Lifetime Access</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-rose-400 mb-2">1000s</div>
+                    <div class="text-sm text-gray-500">Bookmarks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    More than just folders
+                </h2>
+                <p class="text-xl text-gray-400">
+                    AI that understands your browsing psychology
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="feature-card p-6 rounded-2xl border-2 border-teal-500/30">
+                    <div class="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center text-2xl mb-4">💎</div>
+                    <h3 class="text-xl font-bold mb-2 text-teal-400">Recover Lost Treasures</h3>
+                    <p class="text-gray-300">
+                        <strong>Find precious bookmarks</strong> you forgot existed. Rediscover valuable links buried in chaos for years.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card p-6 rounded-2xl border-2 border-cyan-500/30">
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl mb-4">🔍</div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400">Smart Cleanup</h3>
+                    <p class="text-gray-300">
+                        <strong>Automatically remove 404s</strong> and dead links. Find duplicates. Clean years of digital clutter in seconds.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card p-6 rounded-2xl border-2 border-rose-500/30">
+                    <div class="w-12 h-12 rounded-lg bg-rose-500/20 flex items-center justify-center text-2xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2 text-rose-400">One-Click Restore</h3>
+                    <p class="text-gray-300">
+                        <strong>Apply instantly</strong> or revert anytime. Your bookmarks stay safe. No risk, total control.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center text-2xl mb-4">🧠</div>
+                    <h3 class="text-xl font-bold mb-2">AI Psychology</h3>
+                    <p class="text-gray-400">
+                        Detects your hobbies, career, and life events. <strong>Organizes by how you actually think</strong>, not alphabetically.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-2xl mb-4">📁</div>
+                    <h3 class="text-xl font-bold mb-2">Perfect Folders</h3>
+                    <p class="text-gray-400">
+                        Creates <strong>nested structures that make sense</strong>. No more "Unsorted Bookmarks" folder with 1,000 items.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center text-2xl mb-4">🔥</div>
+                    <h3 class="text-xl font-bold mb-2">Brutal Honesty</h3>
+                    <p class="text-gray-400">
+                        Get a <strong>productivity score</strong> and real talk about your browsing. Sometimes you need the truth.
+                    </p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center text-2xl mb-4">✏️</div>
+                    <h3 class="text-xl font-bold mb-2">Smart Renaming</h3>
+                    <p class="text-gray-400">
+                        <strong>Auto-rename "Untitled"</strong> bookmarks with descriptive titles. No more mystery links.
+                    </p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-2xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">Life Event Detection</h3>
+                    <p class="text-gray-400">
+                        AI detects major life events from your bookmarks—<strong>weddings, moves, career changes</strong>—and organizes accordingly.
+                    </p>
+                </div>
+
+                <!-- Feature 9 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-2xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold mb-2">Monthly Reminders</h3>
+                    <p class="text-gray-400">
+                        <strong>Lifetime users get monthly nudges</strong> to re-organize as your life evolves. Stay fresh.
+                    </p>
+                </div>
+
+                <!-- Feature 10 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-2xl mb-4">🌍</div>
+                    <h3 class="text-xl font-bold mb-2">Multi-Language</h3>
+                    <p class="text-gray-400">
+                        Organize in <strong>any language</strong>—Spanish, French, Hebrew, Japanese. AI creates folders and insights in your native tongue.
+                    </p>
+                </div>
+
+                <!-- Feature 11 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-teal-500/10 flex items-center justify-center text-2xl mb-4">⏮️</div>
+                    <h3 class="text-xl font-bold mb-2">Version History</h3>
+                    <p class="text-gray-400">
+                        <strong>Time-travel your bookmarks.</strong> Try different organizations, compare versions, restore any previous state instantly.
+                    </p>
+                </div>
+
+                <!-- Feature 12 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-2xl mb-4">📌</div>
+                    <h3 class="text-xl font-bold mb-2">Icon-Only Respect</h3>
+                    <p class="text-gray-400">
+                        Preserves your <strong>Chrome icon-only bookmarks</strong> exactly where you want them. No accidental organization.
+                    </p>
+                </div>
+
+                <!-- Feature 13 -->
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center text-2xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold mb-2">6 Organization Styles</h3>
+                    <p class="text-gray-400">
+                        Choose: <strong>Smart AI, Flat, Deep Nested, By Type, By Domain, or By Year</strong>. Your bookmarks, your way.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="py-20 px-6 bg-black/20">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Your data stays <span class="text-teal-400">yours</span>
+                </h2>
+                <p class="text-xl text-gray-400">
+                    Zero compromise on privacy. Period.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-teal-500/10 border-2 border-teal-500/30 flex items-center justify-center text-4xl mx-auto mb-6">
+                        🔒
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Minimal Data Sent</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <strong class="text-white">We only see titles and domains</strong> (like "github.com"). Not full URLs, not browsing history. Just enough to organize intelligently.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-cyan-500/10 border-2 border-cyan-500/30 flex items-center justify-center text-4xl mx-auto mb-6">
+                        🚫
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Zero Storage</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <strong class="text-white">We don't store your bookmarks.</strong> No databases. No logs. No tracking. Your URLs are yours alone.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-rose-500/10 border-2 border-rose-500/30 flex items-center justify-center text-4xl mx-auto mb-6">
+                        ⛔
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">No Third Parties</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <strong class="text-white">Never sold, shared, or analyzed.</strong> No advertisers. No data brokers. Just you and your bookmarks.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 max-w-3xl mx-auto space-y-6">
+                <div class="bg-teal-500/5 border border-teal-500/20 rounded-xl p-6 text-center">
+                    <p class="text-gray-300 mb-2">
+                        <strong class="text-white">We only see bookmark titles and domains (like "github.com").</strong>
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        Not full URLs. No browsing history. No tracking. No habit monitoring. The AI just organizes what you already saved—nothing more.
+                    </p>
+                </div>
+
+                <!-- Extension Transparency -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <span>🔍</span> What the Extension Does
+                    </h4>
+                    <div class="space-y-2 text-sm text-gray-400 text-left">
+                        <p><strong class="text-gray-300">Permissions needed:</strong></p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong class="text-white">"bookmarks"</strong> - Read bookmark titles and URLs (domains only extracted for AI)</li>
+                            <li><strong class="text-white">"activeTab"</strong> - Only to show the popup when you click the icon</li>
+                        </ul>
+                        <p class="mt-4"><strong class="text-gray-300">What we send to AI:</strong></p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>✓ Bookmark titles (e.g., "GitHub Repository")</li>
+                            <li>✓ Domains only (e.g., "github.com" not "/user/repo/issues/123")</li>
+                        </ul>
+                        <p class="mt-4"><strong class="text-gray-300">What we DON'T access:</strong></p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>❌ No "tabs" permission (can't see what you're browsing)</li>
+                            <li>❌ No "history" permission (can't see where you've been)</li>
+                            <li>❌ No background scripts tracking you</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/10 text-center">
+                        <p class="text-xs text-gray-500 mb-2">Complete transparency:</p>
+                        <a href="https://github.com/yourusername/bookmark-makeover" target="_blank" class="text-teal-400 hover:text-teal-300 text-sm font-semibold">
+                            View Source Code on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Simple, honest pricing
+                </h2>
+                <p class="text-xl text-gray-400">
+                    No credits. No confusion. Just pick your plan.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Yearly Plan -->
+                <div class="pricing-card rounded-3xl p-8 border border-white/10">
+                    <div class="text-sm text-gray-400 mb-2">YEARLY</div>
+                    <div class="flex items-baseline gap-2 mb-2">
+                        <span class="text-5xl font-bold text-white">$9</span>
+                        <span class="text-gray-500">/year</span>
+                    </div>
+                    <div class="text-sm text-teal-400 mb-6">
+                        ≈ <strong>$0.75/month</strong> • 360 analyses per year
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-gray-300"><strong class="text-white">30 reorganizations/month</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-gray-300">Unlimited bookmarks</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-gray-300">Recover lost links</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-gray-300">Remove 404s & duplicates</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-gray-300">Cancel anytime</span>
+                        </li>
+                    </ul>
+
+                    <a href="register.php?plan=yearly" class="block w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 text-center font-semibold transition border border-white/10">
+                        Get Yearly
+                    </a>
+                </div>
+
+                <!-- Lifetime Plan (Popular) -->
+                <div class="pricing-card rounded-3xl p-8 border-2 border-teal-500/50 glow-teal relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <div class="popular-badge px-4 py-1 rounded-full text-black text-xs font-bold">
+                            🔥 BEST VALUE
+                        </div>
+                    </div>
+
+                    <div class="text-sm text-teal-400 mb-2">LIFETIME</div>
+                    <div class="flex items-baseline gap-2 mb-2">
+                        <span class="text-5xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">$29</span>
+                        <span class="text-gray-500">once</span>
+                    </div>
+                    <div class="text-sm text-rose-400 mb-6 font-semibold">
+                        <strong>YEARS of organization</strong> • Never pay again
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-white font-medium"><strong>30 reorganizations/month</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-white font-medium"><strong>Forever.</strong> No renewals ever.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-white font-medium">Recover precious bookmarks</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-white font-medium">Remove dead links & 404s</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 text-xs">✓</div>
+                            <span class="text-white font-medium">All future updates included</span>
+                        </li>
+                    </ul>
+
+                    <a href="register.php?plan=lifetime" class="block w-full py-4 rounded-xl bg-primary text-black text-center font-bold hover:scale-105 transition shadow-lg text-lg">
+                        Get Lifetime Access
+                    </a>
+                    <p class="text-center text-xs text-gray-500 mt-3">One payment. Lifetime value.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 text-gray-500 text-sm">
+                <p>✓ 7-day free trial • ✓ No payment required to start • ✓ Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Three steps to clarity
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-3xl mx-auto mb-6">
+                        1️⃣
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Install Extension</h3>
+                    <p class="text-gray-400">
+                        Add our Chrome extension and connect your account in seconds.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-3xl mx-auto mb-6">
+                        2️⃣
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Let AI Analyze</h3>
+                    <p class="text-gray-400">
+                        Our AI studies your bookmarks and creates the perfect structure.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-3xl mx-auto mb-6">
+                        3️⃣
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Apply & Enjoy</h3>
+                    <p class="text-gray-400">
+                        Review, tweak if needed, and apply to your browser instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="rounded-3xl bg-gradient-to-r from-teal-500/10 via-cyan-500/10 to-blue-500/10 border border-teal-500/30 p-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Ready to organize your chaos?
+                </h2>
+                <p class="text-xl text-gray-400 mb-8">
+                    Join thousands who've already transformed their bookmarks
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="register.php" class="cta-button px-8 py-4 rounded-xl text-black font-bold text-lg shadow-2xl">
+                        Start Free Trial
+                    </a>
+                    <a href="#pricing" class="px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold transition border border-white/10">
+                        See Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-xl">📚</div>
+                    <span class="font-bold text-white">BookmarkMakeOver</span>
+                </div>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition">Privacy</a>
+                    <a href="#" class="hover:text-white transition">Terms</a>
+                    <a href="#" class="hover:text-white transition">Support</a>
+                </div>
+                <div class="text-sm text-gray-500">
+                    © 2025 BookmarkMakeOver. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

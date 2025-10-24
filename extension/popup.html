@@ -3,60 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 420px;
+      min-height: 480px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      padding: 24px;
+      color: #fff;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .logo-icon {
+      font-size: 56px;
+      margin-bottom: 12px;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(20, 184, 166, 0.3);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #d1d5db;
+      margin-bottom: 8px;
+    }
+
+    input[type="email"],
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid rgba(20, 184, 166, 0.3);
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+    }
+
+    input::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #14b8a6;
+      box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+      color: #000000;
+      box-shadow: 0 4px 20px rgba(20, 184, 166, 0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 25px rgba(20, 184, 166, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+    }
+
+    .status.success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 2px solid rgba(16, 185, 129, 0.5);
+    }
+
+    .status.error {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 2px solid rgba(239, 68, 68, 0.5);
+    }
+
+    .status.info {
+      background: rgba(20, 184, 166, 0.15);
+      color: #5eead4;
+      border: 2px solid rgba(20, 184, 166, 0.5);
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .footer a {
+      color: #14b8a6;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      color: #5eead4;
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top: 3px solid #14b8a6;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>📚 BookmarkMakeOver</h1>
-      <div class="credits" id="creditsInfo">
-        <span id="credits">--</span> credits
-      </div>
-    </div>
-
-    <div id="loginSection">
-      <p class="note">Login to organize your bookmarks</p>
-      <input type="text" id="apiKey" placeholder="Your API Key" />
-      <button id="loginBtn" class="btn">Connect</button>
-    </div>
-
-    <div id="mainSection" class="hidden">
-      <div class="stats">
-        <span id="bookmarkCount">-- bookmarks</span>
-        <span id="costEstimate">Cost: -- credits</span>
-      </div>
-
-      <div class="options">
-        <label><input type="checkbox" id="iconOnly"> Icon-Only Bar</label>
-        <label><input type="checkbox" id="foldersOnly"> Folders Only</label>
-        <label><input type="checkbox" id="remove404"> Remove 404s</label>
-        <label><input type="checkbox" id="brutalHonesty"> Brutal Honesty</label>
-
-        <div class="sensitive-group">
-          <label><input type="checkbox" id="hideSensitive"> Hide Sensitive</label>
-          <select id="hideDepth" disabled>
-            <option value="deep">Deep (1 folder)</option>
-            <option value="deeper">Deeper (3 folders)</option>
-            <option value="deepest">Deepest (5 folders)</option>
-            <option value="mariana">Mariana Trench 😏</option>
-          </select>
-        </div>
-      </div>
-
-      <button id="organizeBtn" class="btn btn-primary">Organize Bookmarks</button>
-
-      <div id="status" class="status hidden"></div>
-
-      <div id="preview" class="preview hidden">
-        <h3>Preview</h3>
-        <div id="previewContent"></div>
-        <div class="preview-actions">
-          <button id="applyBtn" class="btn btn-primary">Apply</button>
-          <button id="cancelBtn" class="btn">Cancel</button>
-        </div>
-      </div>
-    </div>
+  <div class="logo">
+    <div class="logo-icon">📚</div>
+    <div class="logo-text">BookmarkMakeOver</div>
   </div>
+
+  <div class="card">
+    <h2>Sign In</h2>
+    <p class="subtitle">Connect your account to organize bookmarks</p>
+
+    <form id="authForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="your@email.com" required autocomplete="email">
+      </div>
+
+      <div class="form-group">
+        <label for="apiKey">API Key</label>
+        <input type="text" id="apiKey" placeholder="sk-ant-api03-..." required autocomplete="off">
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submitBtn">
+        Connect Account
+      </button>
+    </form>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <div class="footer">
+    Don't have an account? <a href="https://phpstack-1510887-5948558.cloudwaysapps.com/register.php" target="_blank">Sign up</a>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>
